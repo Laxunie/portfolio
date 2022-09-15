@@ -3,7 +3,7 @@ import React from 'react'
 const techstack = () => {
   return (
     <div className='w-full h-[500px] flex flex-col justify-center items-center gap-[4rem]'>
-      <div className='flex gap-[100px] w-full relative'>
+      {/* <div className='flex gap-[100px] w-full relative'>
         <div className='flex gap-[100px]'>
           <img className="w-[100px]" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/>
           <img className='w-[100px]' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" />
@@ -24,7 +24,7 @@ const techstack = () => {
         <img className="w-[100px]" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
         <img className="w-[100px]" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
         <img className="w-[100px]" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" />
-      </div>
+      </div> */}
     </div>
   )
 }

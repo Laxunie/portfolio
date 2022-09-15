@@ -1,4 +1,6 @@
+import React from 'react'
 import {Navbar, Header, Projects, Techstack, Footer} from './components'
+
 
 function App() {
   return (
