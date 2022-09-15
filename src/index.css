@@ -41,13 +41,3 @@ body{
 .links-anim:hover{
   background-size: 100% 2px;
 }
-
-.rotater1{
-  animation: rotate 15s linear infinite;
-}
-
-@keyframes rotate{
-  100%{
-    transform: translate(100vw,0)
-  }
-}

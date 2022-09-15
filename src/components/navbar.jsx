@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import {AiOutlineMenu} from 'react-icons/ai'
 import AOS from 'aos';
 import { Sling as Hamburger } from 'hamburger-react'
 
@@ -20,7 +19,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='sm:justify-around flex items-center display-none justify-between  fixed backdrop-blur w-full p-6 bg-primary shadow-lg'>
+    <nav className='sm:justify-around flex items-center display-none justify-between  fixed backdrop-blur w-full p-6 bg-primary shadow-lg z-[2]'>
       <h1 className='text-3xl font-bold text-accent border-2 hover:bg-text duration-200 p-1 cursor-pointer z-[-1]'>RL</h1>
       <div className='sm:flex hidden'>
         <ul className='flex gap-6 items-center text-text text-2xl secondary-text'>
@@ -31,7 +30,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className='sm:hidden flex'>
-        <Hamburger onToggle={(e) => hamburgerClick()} toggled={isOpen} toggle={setOpen} direction="left" color='#7FB6AC'/>
+        <Hamburger onToggle={() => hamburgerClick()} toggled={isOpen} toggle={setOpen} direction="left" color='#7FB6AC'/>
         <div id='hamburger' className='fixed right-0 top-0 bg-primary w-[0px] h-screen z-[-1] duration-200'>
             <ul className='flex flex-col justify-center uppercase text-lg text-center h-screen gap-5'>
               <li id="media-text" className='text-3xl text-text secondary-text'>About</li>
