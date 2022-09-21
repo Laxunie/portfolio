@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 
-const ProjectContainer = ({title, text, image, languages, position1, position2, aos}) => {
+const ProjectContainer = ({title, text, image, languages, position1, position2, aos, id}) => {
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(false);
+    },[])
+    
+    if(!loading){
+        if(document.documentElement.clientWidth >= 750){
+            document.getElementById(id).style.order = position1;
+            document.getElementById(id + "-" + title).style.order = position2;
+        }
+        
+    }
+
   return (
-    <div className='md:flex-row flex flex-col gap-5 items-center justify-around'>
-        <div className={'md:order-' + position2 + ' md:w-[700px] flex flex-col w-[300px] order-' + position1} data-aos={aos} data-aos-duration="2000">
+    <div className='md:flex-row flex flex-col gap-5 items-center justify-between'>
+        <div id={id + '-' + title} className='order-2 projectInfo md:w-[700px] flex flex-col w-[300px]' data-aos={aos} data-aos-duration="2000">
             <div className=' border-2 rounded-xl shadow-xl p-4'>
                 <div className='flex items-center justify-between'>
                     <h1 className='text-primary primary-text font-bold text-4xl'>{title}</h1>
@@ -26,8 +41,8 @@ const ProjectContainer = ({title, text, image, languages, position1, position2, 
             </div>
         </div>
         
-        <div className={'md:order-' + position1 + ' order-' + position2} data-aos={aos} data-aos-duration="2000">
-            <img className='scale-75 shadow-xl hover:scale-[.8] hover:shadow-primary duration-200' src={image} alt="remover"/>
+        <div id={id} className='order-1 projectImg' data-aos={aos} data-aos-duration="2000">
+            <img className='scale-75 shadow-xl hover:scale-[.8] hover:shadow-primary duration-200 w-[700px]' src={image} alt="remover"/>
         </div>
     </div>
   )

@@ -28,7 +28,7 @@ const Techstack = () => {
 
   return (
     <div id="tech stack" className='md:h-auto w-full flex flex-col items-center p-6 pb-[50px]'>
-      <h1 className='text-text text-4xl uppercase font-bold underline decoration-accent' data-aos="fade-up">Tech Stack</h1>
+      <h1 className='md:text-6xl text-text text-4xl uppercase font-bold underline decoration-accent mt-5' data-aos="fade-up">Web Technology</h1>
       <div className='md:flex-row md:text-left text-center flex flex-col justify-around items-center w-full mt-6' data-aos="fade-up">
         <div className='md:w-[500px] w-[300px]'>
           <h1 className='text-accent primary-text text-4xl font-bold uppercase'>Learning</h1>
