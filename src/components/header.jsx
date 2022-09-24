@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react';
 import AOS from 'aos';
-import back from '../assets/images/dsBuffer.bmp-removebg-preview.png'
 
 const Header = () => {
   useEffect(() => {

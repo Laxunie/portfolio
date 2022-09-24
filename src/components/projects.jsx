@@ -17,6 +17,7 @@ const Projects = () => {
           languages={['C#']}
           aos="fade-right"
           id="1"
+          link="https://github.com/Laxunie/FileRemover"
         />
 
         <ProjectContainer 
@@ -29,17 +30,20 @@ const Projects = () => {
           languages={['React', 'Firebase']}
           aos="fade-left"
           id="2"
+          link="https://github.com/Laxunie/anita-chandara-portfolio"
         />
 
         <ProjectContainer 
-          title="Windows File Remover"
-          text="A very simple Windows Forms application that uses queues to store selected files and delete them in the given order."
-          image={images.fileRemover}
+          title="Notes4U"
+          text="A bulletin board website for sticky notes, created for users to store notes in an easily accessible website. Login is email confirmation and requires
+            no passwords!"
+          image={images.Notes4U}
           position1="2"
           position2="1"
-          languages={['C#']}
+          languages={['React', 'Firebase', 'Material UI', 'TailWindCSS']}
           aos="fade-right"
           id="3"
+          link="https://github.com/Laxunie/Notes4U"
         />
       </div>
     </div>
