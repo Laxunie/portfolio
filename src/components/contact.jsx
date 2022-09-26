@@ -4,7 +4,7 @@ const Contact = () => {
     return (
     <div id="contact" className='w-full h-[90%] flex  flex-col justify-center items-center'>
         <div className='md:w-[600px] w-[350px] text-center' data-aos="fade-up" data-aos-duration="2000">
-            <h1 className='md:text-6xl text-text text-4xl uppercase font-bold underline decoration-accent'>Contact Me</h1>
+            <h1 className='md:text-6xl text-text text-4xl uppercase font-bold underline decoration-accent decoration-4 underline-offset-8'>Contact Me</h1>
             <p className='text-text mt-5 secondary-text '>Whether it's a job opportunity, feedback on my work, or a call for collaboration my inbox is always open! Feel free to send me a message! </p>
             <a href="mailto:rickylaa@hotmail.com" class="relative mt-5 inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-accent transition duration-300 ease-out border-2 border-accent rounded shadow-md group">
                 <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-accent group-hover:translate-x-0 ease">

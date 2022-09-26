@@ -79,7 +79,7 @@ const Navbar = () => {
             var lower = link.link.toLowerCase();
             return(
               <li key={link} id="link" className='links-anim links-anim-colour2'>
-                <Link to={lower} spy={true} smooth={true} offset={links.offset} duration={500}>
+                <Link to={lower} spy={true} smooth={true} offset={link.offset} duration={500}>
                   {link.link}
                 </Link>
               </li>

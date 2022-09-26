@@ -6,7 +6,7 @@ const Projects = () => {
 
   return (
     <div id="projects" className='flex flex-col w-full items-center bg-accent p-6 overflow-hidden'>
-      <h1 className='md:text-6xl text-text text-4xl uppercase font-bold underline decoration-primary mt-5'>Projects</h1>
+      <h1 className='md:text-6xl text-text text-4xl uppercase font-bold underline decoration-primary mt-5 decoration-4 underline-offset-8'>Projects</h1>
       <div className='m-6'>
         <ProjectContainer 
           title="Windows File Remover"
