@@ -8,6 +8,10 @@
   --secondary-text: 'Merriweather', serif;
 }
 
+::-webkit-scrollbar-thumb{
+  scrollbar-color: red;
+}
+
 .primary-text{
   font-family: var(--primary-text);
 }
