@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react'
-import AOS from 'aos';
+import React from 'react'
 import { siFirebase, siNodedotjs, siHtml5, siExpress, siGit, siGithub, siJavascript,siMongodb,siReact,siRubyonrails,siPython,siPhp,siAndroidstudio, siNpm, siOracle, siMysql } from 'simple-icons/icons';
 import { Cloud, renderSimpleIcon } from "react-icon-cloud";
  
 const Techstack = () => {
 
-  useEffect(() => {
-    AOS.init();
-  })
-
-  const array = [siFirebase, siNodedotjs, siHtml5, siExpress, siGit, siGithub, siJavascript, siMongodb, siReact, siRubyonrails, siPython, siPhp, siAndroidstudio, siNpm, siOracle, siMysql]
-
+  //Array of icons from SimepleIcons to use in the Tag Cloud
+  const array = [
+                  siFirebase, siNodedotjs, siHtml5, 
+                  siExpress, siGit, siGithub, 
+                  siJavascript, siMongodb, siReact, 
+                  siRubyonrails, siPython, siPhp, 
+                  siAndroidstudio, siNpm, siOracle, 
+                  siMysql
+                ]
+  
+  //Arrow function to map through the SimpleIcons array and create the Tag Cloud using the installed library
   const icons = array.map((icon) => {
     return renderSimpleIcon({
       icon,

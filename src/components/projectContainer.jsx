@@ -4,21 +4,39 @@ import Modal from '@mui/material/Modal';
 
 const ProjectContainer = ({title, text, image, languages, position1, position2, aos, id, link}) => {
 
+    //State to check if the page is fully loaded
     const [loading, setLoading] = useState(true);
+    //State to open or close the Image Modal
     const [open, setOpen] = useState(false);
+    //Function to handle the Modal Opening event
     const handleOpen = () => setOpen(true);
+    //Function to handle the Modal Closing event
     const handleClose = () => setOpen(false);
 
+    //Sets loading to false when site is fully rendered
     useEffect(() => {
         setLoading(false);
     },[])
     
+    //When the site is fully rendered determine if the client is in desktop view;
+    //If it is in desktop view set the order of the image and info boxes
     if(!loading){
         if(document.documentElement.clientWidth >= 750){
             document.getElementById(id).style.order = position1;
             document.getElementById(id + "-" + title).style.order = position2;
         }
         
+    }
+
+    //Map through the languages array and return each of the lanugages
+    const languagesUsed = () => {
+        return(
+            languages.map(language => {
+                return(
+                    <h1 key={languages.indexOf(language)} className="text-center">{language}</h1>
+                )
+            })
+        )
     }
 
   return (
@@ -39,11 +57,7 @@ const ProjectContainer = ({title, text, image, languages, position1, position2, 
             </div>
             
             <div className='w-full flex justify-center gap-5 pt-3 font-bold primary-text'>
-                {languages.map(language => {
-                    return(
-                        <h1 key={languages.indexOf(language)}>{language}</h1>
-                    )
-                })}
+                {languagesUsed()}
             </div>
         </div>
         

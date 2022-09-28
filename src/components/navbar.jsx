@@ -1,67 +1,43 @@
-import React, {useEffect, useState} from 'react'
-import AOS from 'aos';
+import React, {useState} from 'react'
+
 import { Sling as Hamburger } from 'hamburger-react'
 import {Link} from 'react-scroll'
 
 const Navbar = () => {
+
+  //State for Hamburger-React open and close function
   const [isOpen, setOpen] = useState(false)
+
+  //Array of navbar links with their React-Scroll offsets
   const links = [
     {
       link: "About",
-      offset: 0,
+      desktopOffset: 0,
       mobileOffset: 0,
       id: 1
     },
     {
       link: "Tech Stack",
-      offset: -80,
+      desktopOffset: -80,
       mobileOffset: 0,
       id: 2
     },
     {
       link: "Projects",
-      offset: -80,
+      desktopOffset: -80,
       mobileOffset: 0,
       id: 3
     },
     {
       link: "Contact",
-      offset: 0,
+      desktopOffset: 0,
       mobileOffset: 0,
       id: 4
     },
   ];
-
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  })
-
-  useEffect(() => {
-    var lastScrollTop = 0;
-    window.addEventListener("scroll", function(){
-      const navbar = document.getElementById("navbar");
-      const scrollTop = window.pageYOffset;
-      if(navbar){
-        if(scrollTop <= 0){
-          navbar.classList.remove("shadow-lg")
-        }
-
-        if(scrollTop > lastScrollTop && scrollTop > 100 && !navbar.classList.contains("scroll-down")){
-            navbar.classList.add("scroll-down")
-        }
-
-        if(scrollTop < lastScrollTop && navbar.classList.contains("scroll-down")){
-          navbar.classList.remove("scroll-down")
-          navbar.classList.add("shadow-lg")
-        }
-
-        lastScrollTop = scrollTop;
-      }
-    })
-  })
   
-  function hamburgerClick(){
+  //When hamburger is clicked expand/close the hidden nav menu, change IDs so scrolling behaviour is changed and determine whether to close or open the menu
+  const hamburgerClick = () => {
     if(isOpen){
       setOpen(false);
       document.getElementById("hamburgerView").id = "navbar"
@@ -74,10 +50,37 @@ const Navbar = () => {
     }
   }
 
-  function handleMenuOnClick() {
+  //When a menu item is clicked in the mobile navbar click the Hamburger-React icon so the animation goes through
+  const handleMenuOnClick = () => {
     if (isOpen) {
       document.getElementsByClassName("hamburger-react")[0].click();
     }
+  }
+
+  //Map through the Links array to display <li> elements and set React-Scroll properties of the Links
+  const menuLinks = (offset, clickFunction = null) => {
+    return(
+      links.map(link => {
+        return(
+          <li key={link.id} id="link" className='links-anim links-anim-colour2 text-text'>
+            <Link 
+              to={link.link.toLowerCase()} 
+              spy={true} 
+              smooth={true} 
+              offset={link[offset]} 
+              duration={500}
+              onClick={() => 
+                {
+                  clickFunction()
+                }
+              }
+            >
+              {link.link}
+            </Link>
+          </li>
+        )
+      })
+    )
   }
  
   return (
@@ -87,16 +90,7 @@ const Navbar = () => {
       </h1>
       <div className='sm:flex hidden'>
         <ul className='flex gap-6 items-center text-text text-l secondary-text'>
-          {links.map(link => {
-            var lower = link.link.toLowerCase();
-            return(
-              <li key={link.id} id="link" className='links-anim links-anim-colour2'>
-                <Link to={lower} spy={true} smooth={true} offset={link.offset} duration={500}>
-                  {link.link}
-                </Link>
-              </li>
-            )
-          })}
+          {menuLinks("desktopOffset")}
         </ul>
       </div>
       <div className='sm:hidden'>
@@ -105,19 +99,7 @@ const Navbar = () => {
         </div>
         <div id='hamburger' className='fixed right-0 top-0 bg-primary w-[0px] h-screen duration-200 z-[-1]'>
             <ul className='flex flex-col justify-center uppercase text-lg text-center h-screen gap-5'>
-              {links.map(link => {
-                var lower = link.link.toLowerCase();
-                lower.replace(/\s/g, '');
-                return(
-                  <li key={link.id} id="media-text" className='text-3xl text-text secondary-text'>
-                    <Link to={lower} spy={true} smooth={true} offset={link.mobileOffset} duration={500} onClick={() => {
-                      handleMenuOnClick()
-                    }}>
-                      {link.link}
-                    </Link>
-                  </li>
-                )
-              })}
+              {menuLinks("mobileOffset", handleMenuOnClick)}
             </ul>
         </div>
       </div>

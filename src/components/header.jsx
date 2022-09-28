@@ -4,21 +4,6 @@ import AOS from 'aos';
 import {Link} from 'react-scroll'
 
 const Header = () => {
-  useEffect(() => {
-    AOS.init();
-  })
-  useEffect(() => {
-    document.addEventListener("mousemove", parallax);
-
-    function parallax(e){
-      document.querySelectorAll(".object").forEach(function(move) {
-        var moving_value = move.getAttribute("data-value");
-        var x = e.clientX * moving_value/75;
-        var y = e.clientY * moving_value/75;
-        move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
-      })  
-    }
-  })
   
   return (
     <header id="about" className='relative bg-accent flex justify-center items-center overflow-hidden'>
@@ -45,7 +30,7 @@ const Header = () => {
         <div className='xl:w-[700px]'>
           <h1 className='md:text-7xl text-primary primary-text text-5xl font-bold uppercase'>Ricky La</h1>
           <p className='md:text-xl text-text secondary-text text-3xl pt-10 italic'>Aspiring Software Engineer</p>
-          <p className='md:text-xl font-thin text-text secondary-text pt-5'>I'm an alumni from <a href="https://www.rrc.ca/" 
+          <p className='md:text-xl font-thin text-text secondary-text pt-5'>I'm an alumnus from <a href="https://www.rrc.ca/" 
           className='primary-text text-primary font-bold links-anim h-[25px] inline-block links-anim-colour1'>
           Red River College</a> graduated from the{" "}
           <a href="https://catalogue.rrc.ca/Programs/WPG/Fulltime/BUSGF-DP" className='primary-text text-primary font-bold links-anim h-[25px] links-anim-colour1'>

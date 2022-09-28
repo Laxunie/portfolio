@@ -1,9 +1,52 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Navbar, Header, Projects, Techstack, Footer, Contact} from './components'
+import AOS from 'aos';
 
 
 function App() {
-  
+
+  //Load in AOS library
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  })
+
+  //Hide and Reveal navbar on scroll listener
+  var lastScrollTop = 0; //Variable to store current top of page position
+  window.addEventListener("scroll", function(){
+    const navbar = document.getElementById("navbar"); //Variable targetting the navbar element
+    const scrollTop = window.pageYOffset; //Variable that grabs the Y position of the current top of the page
+    //If navbar exists; 
+    if(navbar){
+      //If the top of the page is Y:0 remove the box-shadow;
+      if(scrollTop <= 0){
+        navbar.classList.remove("shadow-lg")
+      }
+      //If the top of the pages Y value is greater than the last scroll position and greater then Y:100 remove the navbar;
+      if(scrollTop > lastScrollTop && scrollTop > 100 && !navbar.classList.contains("scroll-down")){
+          navbar.classList.add("scroll-down")
+      }
+      //If the tp of the page is less then the last scroll position show the navbar;
+      if(scrollTop < lastScrollTop && navbar.classList.contains("scroll-down")){
+        navbar.classList.remove("scroll-down")
+        navbar.classList.add("shadow-lg")
+      }
+      //Set the last scroll position to the current top of the page.
+      lastScrollTop = scrollTop;
+    }
+  })
+
+  //Parallax effect to move the bubbles with cursor position on the header page
+  document.addEventListener("mousemove", parallax);
+  function parallax(e){
+    document.querySelectorAll(".object").forEach(function(move) {
+      var moving_value = move.getAttribute("data-value");
+      var x = e.clientX * moving_value/75;
+      var y = e.clientY * moving_value/75;
+      move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+    })  
+  }
+
   return (
     <div className="bg-primary h-screen">
       <Navbar/>
