@@ -57,6 +57,93 @@ body{
   animation: jump 4s infinite;
 }
 
+.main::before{
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #506461;
+  overflow: hidden;
+  z-index: 15;
+  animation: staticBackgroundFade 1s forwards 1s;
+}
+
+.main::after{
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #495956;
+  overflow: hidden;
+  z-index: 15;
+  animation: swipeRight 1s ease;
+}
+
+.anim h1::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: showText .4s ease 1.5s forwards;
+}
+
+.anim p:nth-child(2):before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: showText .4s ease 1.75s forwards;
+}
+
+.anim p:nth-child(3):before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  animation: showText .4s ease 2s forwards;
+}
+
+@keyframes staticBackgroundFade {
+  from{
+    opacity: 1;
+  }  
+  to{
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+@keyframes showText{
+  0%{
+    left: 0;
+  }
+  100%{
+    left: 100%;
+    width: 0;
+  }
+}
+
+@keyframes swipeRight{
+  0%{
+    left: 0;
+  }
+  100%{
+    left: 100%;
+  }
+}
+
 @keyframes jump{
   0%{
     bottom: 20px;

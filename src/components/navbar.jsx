@@ -58,7 +58,7 @@ const Navbar = () => {
   }
 
   //Map through the Links array to display <li> elements and set React-Scroll properties of the Links
-  const menuLinks = (offset, clickFunction = null) => {
+  const menuLinks = (offset, clickFunction) => {
     return(
       links.map(link => {
         return(
@@ -71,7 +71,9 @@ const Navbar = () => {
               duration={500}
               onClick={() => 
                 {
-                  clickFunction()
+                  if(clickFunction){
+                    clickFunction()
+                  }
                 }
               }
             >
@@ -85,10 +87,10 @@ const Navbar = () => {
  
   return (
     <nav id="navbar" className='navbar sm:justify-around flex items-center justify-between fixed backdrop-blur w-full p-6 bg-primary z-[2] duration-1000'>
-      <h1 className='text-3xl font-bold text-accent border-2 hover:bg-text duration-200 p-1 cursor-pointer z-[1]' data-aos="fade-down" data-aos-once="true" data-aos-delay="500">
+      <h1 className='text-3xl font-bold text-accent border-2 hover:bg-text duration-200 p-1 cursor-pointer z-[1]' data-aos="fade-down" data-aos-once="true" data-aos-delay="1500">
         RL
       </h1>
-      <div className='sm:flex hidden'>
+      <div className='sm:flex hidden' data-aos="fade-down" data-aos-once="true" data-aos-delay="1500">
         <ul className='flex gap-6 items-center text-text text-l secondary-text'>
           {menuLinks("desktopOffset")}
         </ul>

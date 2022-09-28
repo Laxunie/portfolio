@@ -48,7 +48,7 @@ function App() {
   }
 
   return (
-    <div className="bg-primary h-screen">
+    <div className="main bg-primary h-screen">
       <Navbar/>
       <Header/>
       <Techstack/>
