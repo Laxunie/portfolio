@@ -129,23 +129,8 @@ const Techstack = () => {
 
   return (
     <div id="tech stack" className='md:h-auto relative w-full flex flex-col items-center p-6 pb-[50px]'>
-      <div className='absolute top-[80px] right-[200px] flex gap-3'>
-        <button
-          style={!cloudView ? {"backgroundColor": "gray"} : {}}
-          onClick={(e) => setCloudView(0)}
-          className="bg-gray-200 rounded p-2 hover:bg-gray-300 duration-200">
-          <AiFillCloud size={25}/>
-        </button>
-        <button 
-          style={cloudView ? {"backgroundColor": "gray"} : {}}
-          onClick={(e) => setCloudView(1)}
-          className="bg-gray-200 rounded p-2 hover:bg-gray-300 duration-200">
-          <AiOutlineUnorderedList size={25}/>
-        </button>
-      </div>
-      
       <h1 className='md:text-6xl text-text text-4xl uppercase font-bold underline decoration-accent mt-5 decoration-4 underline-offset-8' data-aos="fade-up">Web Technology</h1>
-      <div className='md:flex-row md:text-left text-center flex flex-col justify-around items-center w-full mt-6' data-aos="fade-up">
+      <div className='lg:flex-row md:text-left text-center flex flex-col justify-around items-center w-full mt-6' data-aos="fade-up">
         <div className='md:w-[500px] w-[300px]'>
           <h1 className='text-accent primary-text text-4xl font-bold uppercase'>Learning</h1>
           <p className='text-text secondary-text mt-3'>
@@ -155,6 +140,20 @@ const Techstack = () => {
           <p className='text-text secondary-text mt-3'>
             With my willingness to learn and adapt to new technologies, I hope to get my skill set to higher levels and increase this cloud of technology.
           </p>
+        </div>
+        <div className='lg:absolute -top-20 right-0 flex gap-3 mt-3'>
+          <button
+            style={!cloudView ? {"backgroundColor": "gray"} : {}}
+            onClick={(e) => setCloudView(0)}
+            className="bg-gray-200 rounded p-2 hover:bg-gray-300 duration-200">
+            <AiFillCloud size={25}/>
+          </button>
+          <button 
+            style={cloudView ? {"backgroundColor": "gray"} : {}}
+            onClick={(e) => setCloudView(1)}
+            className="bg-gray-200 rounded p-2 hover:bg-gray-300 duration-200">
+            <AiOutlineUnorderedList size={25}/>
+          </button>
         </div>
         {!cloudView ? 
           <Cloud 
@@ -172,7 +171,7 @@ const Techstack = () => {
             {icons}
           </Cloud>
         :
-          <div className='grid grid-cols-5 p-10 gap-3' data-aos="fade-in" data-aos-duration="2000">
+          <div className='md:p-10 md:grid-cols-3 lg:grid-cols-5 grid grid-cols-2 p-3 gap-3' data-aos="fade-in" data-aos-duration="2000">
             {iconsList}
           </div>
         }
