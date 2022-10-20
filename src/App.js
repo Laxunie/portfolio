@@ -21,15 +21,19 @@ function App() {
       //If the top of the page is Y:0 remove the box-shadow;
       if(scrollTop <= 0){
         navbar.classList.remove("shadow-lg")
+        navbar.style.backgroundColor = "#7FB6AC"
+        document.getElementById("logo").style.color = "#495956"
       }
       //If the top of the pages Y value is greater than the last scroll position and greater then Y:100 remove the navbar;
       if(scrollTop > lastScrollTop && scrollTop > 100 && !navbar.classList.contains("scroll-down")){
           navbar.classList.add("scroll-down")
+          navbar.style.backgroundColor = "#495956"
       }
-      //If the tp of the page is less then the last scroll position show the navbar;
+      //If the top of the page is less then the last scroll position show the navbar;
       if(scrollTop < lastScrollTop && navbar.classList.contains("scroll-down")){
         navbar.classList.remove("scroll-down")
         navbar.classList.add("shadow-lg")
+        document.getElementById("logo").style.color = "#7FB6AC"
       }
       //Set the last scroll position to the current top of the page.
       lastScrollTop = scrollTop;
